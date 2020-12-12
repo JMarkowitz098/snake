@@ -17,15 +17,25 @@ class GameCanvas {
     placeFruit(numFruit){
         let fruit = [];
         for (let i = 0; i < numFruit; i++){
-            let pos = {x: randPos(), y: randPos()}
-            let apple = new Apple({ 
-                size: CONSTANTS.BLOCK_SIZE, 
+            let pos = { x: randPos(), y: randPos() }
+            let apple = new Apple({
+                size: CONSTANTS.BLOCK_SIZE,
                 color: CONSTANTS.APPLE_COLOR,
                 pos
             })
             fruit.push(apple)
         }
         return fruit;
+    }
+
+    placeNewApple(){
+        let pos = { x: randPos(), y: randPos() }
+        let apple = new Apple({
+            size: CONSTANTS.BLOCK_SIZE,
+            color: CONSTANTS.APPLE_COLOR,
+            pos
+        })
+        this.fruit.push(apple)
     }
 
     drawFruit(){
@@ -48,6 +58,17 @@ class GameCanvas {
 
     moveSnake(){
         this.snake.move();
+    }
+
+    checkApples(){
+        const { snake } = this
+        const snakePos = snake.bodyPositions[snake.bodyPositions.length - 1]
+        this.fruit.forEach(apple => {
+            if (apple.isEaten(snakePos)) {
+                this.snake.increaseLength()
+                this.placeNewApple()
+            }
+        })
     }
 
     clearCanvas(){

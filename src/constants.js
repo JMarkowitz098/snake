@@ -15,7 +15,7 @@ export const DIR_OPTIONS = {
     d: DIR_RIGHT,
 }
 
-export const FPS = 1
+export const FPS = 5
 
 export const NUM_FRUIT = 1
 

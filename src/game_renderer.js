@@ -33,8 +33,9 @@ class GameRenderer{
         gameCanvas.drawFruit();
         gameCanvas.drawSnake();
 
+        gameCanvas.checkApples();
+
         if (!gameOver(gameCanvas)) this.animate(this.step)
-        // this.animate(this.step)
     }
 
     onKeyDown(e) {

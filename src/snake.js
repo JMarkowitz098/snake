@@ -35,7 +35,6 @@ class Snake {
         let sliceIdx = bodyPositions.length - length >= 1 ? bodyPositions.length - length : 1
         this.bodyPositions = 
             bodyPositions.slice(sliceIdx)
-        console.log(this.bodyPositions)
     }
 
     move(){
