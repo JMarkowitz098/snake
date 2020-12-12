@@ -1,2 +1,3 @@
 -Make apples not spawn where snake body is
 -Make it stop when snake crashes into it's own body
+-Make it so snake can only turn left or right

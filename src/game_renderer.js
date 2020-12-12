@@ -16,7 +16,8 @@ class GameRenderer{
     }
 
     gameOver(gameCanvas){
-        return gameCanvas.snake.collidedWithWall();
+        const { snake } = gameCanvas
+        return snake.collidedWithWall() || snake.collidedWithSelf() ;
     }
     
     start(){

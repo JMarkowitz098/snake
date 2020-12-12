@@ -30,6 +30,12 @@ class Snake {
         )
     }
 
+    collidedWithSelf(){
+        const { x, y, bodyPositions } = this;
+        let snakeBody = bodyPositions.slice(0, bodyPositions.length - 2)
+        return snakeBody.some(pos => x === pos.x && y === pos.y)
+    }
+
     cutBodyPositionsByLength(){
         const { bodyPositions, length } = this;
         let sliceIdx = bodyPositions.length - length >= 1 ? bodyPositions.length - length : 1

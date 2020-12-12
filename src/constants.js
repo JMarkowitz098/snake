@@ -2,7 +2,7 @@ export const APPLE_COLOR = "red"
 
 export const BLOCK_SIZE = 25
 
-export const CANVAS_SIDE_LENGTH = 600;
+export const CANVAS_SIDE_LENGTH = 300;
 
 export const DIR_DOWN = 'down'
 export const DIR_LEFT = 'left'
@@ -15,7 +15,7 @@ export const DIR_OPTIONS = {
     d: DIR_RIGHT,
 }
 
-export const FPS = 5
+export const FPS = 10
 
 export const NUM_FRUIT = 1
 
