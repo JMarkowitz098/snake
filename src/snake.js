@@ -63,8 +63,28 @@ class Snake {
         this.cutBodyPositionsByLength()
     }
 
+    isValidMove(newDir){
+        switch (this.dir) {
+            case CONSTANTS.DIR_UP:
+                return newDir !== CONSTANTS.DIR_DOWN
+            case CONSTANTS.DIR_DOWN:
+                return newDir !== CONSTANTS.DIR_UP
+            case CONSTANTS.DIR_LEFT:
+                return newDir !== CONSTANTS.DIR_RIGHT
+            case CONSTANTS.DIR_RIGHT:
+                return newDir !== CONSTANTS.DIR_LEFT
+        }
+    }
+
+    isInSnakeBody(applePos){
+        const { bodyPositions } = this;
+        const aX = applePos.x
+        const aY = applePos.y
+        return bodyPositions.some(({x, y}) => x === aX && y === aY)
+    }
+
     changeDir(newDir){
-        this.dir = newDir
+        if (this.isValidMove(newDir)) this.dir = newDir
     }
 
     increaseLength(){

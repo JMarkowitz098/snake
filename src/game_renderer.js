@@ -42,11 +42,12 @@ class GameRenderer{
     onKeyDown(e) {
         const { gameCanvas, dirOptions } = this
         const newDir = dirOptions[e.key];
+        console.log(e.key)
 
         if (Object.keys(dirOptions).includes(e.key))
             gameCanvas.snake.changeDir(newDir)
         
-        if (e.key === 'q') gameCanvas.snake.increaseLength();
+        // if (e.key === 'q') gameCanvas.snake.increaseLength(); //Cheat
     }
 
     bindKeyHandlers() {

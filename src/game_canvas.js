@@ -31,12 +31,15 @@ class GameCanvas {
     }
 
     placeNewApple(){
+        const { snake } = this;
         let pos = getRandPos()
+        while(snake.isInSnakeBody(pos)) pos = getRandPos()
         let apple = new Apple({
             size: CONSTANTS.BLOCK_SIZE,
             color: CONSTANTS.APPLE_COLOR,
             pos
         })
+        this.fruit.pop()
         this.fruit.push(apple)
     }
 
@@ -69,6 +72,7 @@ class GameCanvas {
             if (apple.isEaten(snakePos)) {
                 this.snake.increaseLength()
                 this.placeNewApple()
+                this.increaseScore();
             }
         })
     }
@@ -88,6 +92,15 @@ class GameCanvas {
             CONSTANTS.CANVAS_SIDE_LENGTH,
             CONSTANTS.CANVAS_SIDE_LENGTH
         );
+    }
+
+    increaseScore(){
+        let scoreEle = document.getElementById('score')
+        let scoreStr = scoreEle.innerHTML
+        let score = parseInt(scoreStr.split(':')[1])
+        score += 1
+        console.log(score)
+        scoreEle.innerHTML = `Score: ${score}`;
     }
 }
 

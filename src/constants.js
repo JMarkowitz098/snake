@@ -13,6 +13,11 @@ export const DIR_OPTIONS = {
     a: DIR_LEFT,
     s: DIR_DOWN,
     d: DIR_RIGHT,
+    ArrowUp: DIR_UP,
+    ArrowLeft: DIR_LEFT,
+    ArrowRight: DIR_RIGHT,
+    ArrowDown: DIR_DOWN,
+
 }
 
 export const FPS = 10
