@@ -1,5 +1,5 @@
-class Apple {
-    constructor({size, color, pos}){
+class Snake {
+    constructor({size, color, pos}) {
         this.size = size;
         this.color = color;
         this.x = pos.x
@@ -13,4 +13,4 @@ class Apple {
     }
 }
 
-export default Apple
+export default Snake

@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.fillStyle = "black";
     ctx.font = "30px Arial";
     gameCanvas.drawFruit()
+    gameCanvas.drawSnake()
 
     // const startGame = () => {
     //     gameView.start();

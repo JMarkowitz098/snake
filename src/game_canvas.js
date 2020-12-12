@@ -1,4 +1,5 @@
 import Apple from './apple'
+import Snake from './snake'
 import * as CONSTANTS from './constants'
 
 const randPos = () => {
@@ -10,6 +11,7 @@ class GameCanvas {
     constructor({ctx, numFruit}){
         this.ctx = ctx;
         this.fruit = this.placeFruit(numFruit)
+        this.snake = this.placeSnake()
     }
 
     placeFruit(numFruit){
@@ -29,6 +31,19 @@ class GameCanvas {
     drawFruit(){
         const {fruit, ctx} = this;
         fruit.forEach(apple => apple.draw(ctx))
+    }
+
+    placeSnake(){
+        return new Snake({
+            size: CONSTANTS.BLOCK_SIZE,
+            color: CONSTANTS.SNAKE_COLOR,
+            pos: { x: CONSTANTS.SNAKE_START_POS, y: CONSTANTS.SNAKE_START_POS }
+        })
+    }
+
+    drawSnake(){
+        const {snake, ctx} = this;
+        snake.draw(ctx)
     }
 }
 
