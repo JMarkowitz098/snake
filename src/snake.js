@@ -11,7 +11,7 @@ class Snake {
             x: CONSTANTS.SNAKE_START_POS,
             y: CONSTANTS.SNAKE_START_POS
         }]
-        this.length = 4; //Starting Snake Size
+        this.length = 1; //Starting Snake Size
     }
 
     draw(ctx) {
@@ -32,10 +32,9 @@ class Snake {
 
     cutBodyPositionsByLength(){
         const { bodyPositions, length } = this;
+        let sliceIdx = bodyPositions.length - length >= 1 ? bodyPositions.length - length : 1
         this.bodyPositions = 
-            bodyPositions.slice(bodyPositions.length - 3)
-            // bodyPositions.slice(bodyPositions.length - length * 2)
-
+            bodyPositions.slice(sliceIdx)
         console.log(this.bodyPositions)
     }
 
@@ -61,6 +60,13 @@ class Snake {
 
     changeDir(newDir){
         this.dir = newDir
+    }
+
+    increaseLength(){
+        let x = this.x
+        let y = this.y
+        this.bodyPositions.push({ x, y })
+        this.length += 1;
     }
 }
 

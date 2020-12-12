@@ -43,6 +43,8 @@ class GameRenderer{
 
         if (Object.keys(dirOptions).includes(e.key))
             gameCanvas.snake.changeDir(newDir)
+        
+        if (e.key === 'q') gameCanvas.snake.increaseLength();
     }
 
     bindKeyHandlers() {
