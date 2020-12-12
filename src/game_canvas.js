@@ -2,22 +2,24 @@ import Apple from './apple'
 import Snake from './snake'
 import * as CONSTANTS from './constants'
 
-const randPos = () => {
+const getRandPos = () => {
     const factor = CONSTANTS.CANVAS_SIDE_LENGTH / CONSTANTS.BLOCK_SIZE
-    return Math.floor(Math.random() * factor) * CONSTANTS.BLOCK_SIZE + 100
+    let x = Math.floor(Math.random() * factor) * CONSTANTS.BLOCK_SIZE + 100
+    let y = Math.floor(Math.random() * factor) * CONSTANTS.BLOCK_SIZE + 100
+    return {x, y}
 }
 
 class GameCanvas {
     constructor({ctx}){
         this.ctx = ctx;
-        this.fruit = this.placeFruit(CONSTANTS.NUM_FRUIT)
+        this.fruit = this.placeStartingFruit(CONSTANTS.NUM_FRUIT)
         this.snake = this.placeSnake()
     }
 
-    placeFruit(numFruit){
+    placeStartingFruit(numFruit){
         let fruit = [];
         for (let i = 0; i < numFruit; i++){
-            let pos = { x: randPos(), y: randPos() }
+            let pos = getRandPos()
             let apple = new Apple({
                 size: CONSTANTS.BLOCK_SIZE,
                 color: CONSTANTS.APPLE_COLOR,
@@ -29,7 +31,7 @@ class GameCanvas {
     }
 
     placeNewApple(){
-        let pos = { x: randPos(), y: randPos() }
+        let pos = getRandPos()
         let apple = new Apple({
             size: CONSTANTS.BLOCK_SIZE,
             color: CONSTANTS.APPLE_COLOR,
