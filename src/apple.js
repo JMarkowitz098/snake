@@ -1,14 +1,17 @@
 class Apple {
-    constructor({size, color}){
+    constructor({size, color, pos}){
         this.size = size;
         this.color = color;
+        this.x = pos.x
+        this.y = pos.y
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color;
-        // let x = this.canvPos[0];
-        // let y = this.canvPos[1];
-        ctx.fillRect(50, 50, this.size, this.size);
+        const { size, color, x, y } = this
+        ctx.fillStyle = color;
+        console.log({x})
+        console.log({y})
+        ctx.fillRect(x, y, size, size);
     }
 }
 

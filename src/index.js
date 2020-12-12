@@ -1,13 +1,13 @@
-import Apple from './apple'
+import GameCanvas from './game_canvas'
+import * as CONSTANTS from './constants'
 
-const BLOCK_SIZE = 20
-const APPLE_COLOR = "red"
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvasEl = document.getElementById("game-canvas")
     const ctx = canvasEl.getContext("2d");
+    const gameCanvas = new GameCanvas({ctx, numFruit: 4})
 
-    const apple = new Apple({size: BLOCK_SIZE, color: APPLE_COLOR})
     // const game = new Game();
 
     // const gameView = new GameView(game, ctx)
@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Starts game when 'm' is pressed-----------
     ctx.fillStyle = "black";
-    ctx.fillRect(-10, 50, 400, 700);
+    ctx.fillRect(
+        100, 
+        100, 
+        CONSTANTS.CANVAS_SIDE_LENGTH, 
+        CONSTANTS.CANVAS_SIDE_LENGTH
+    );
     ctx.fillStyle = "black";
     ctx.font = "30px Arial";
-    ctx.fillText("Press 'm' to start ", 40, 600);
-    apple.draw(ctx);
+    gameCanvas.drawFruit()
 
     // const startGame = () => {
     //     gameView.start();
