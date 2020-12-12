@@ -8,9 +8,9 @@ const randPos = () => {
 }
 
 class GameCanvas {
-    constructor({ctx, numFruit}){
+    constructor({ctx}){
         this.ctx = ctx;
-        this.fruit = this.placeFruit(numFruit)
+        this.fruit = this.placeFruit(CONSTANTS.NUM_FRUIT)
         this.snake = this.placeSnake()
     }
 
@@ -44,6 +44,27 @@ class GameCanvas {
     drawSnake(){
         const {snake, ctx} = this;
         snake.draw(ctx)
+    }
+
+    moveSnake(){
+        this.snake.move();
+    }
+
+    clearCanvas(){
+        const { ctx } = this;
+        ctx.clearRect(
+            CONSTANTS.CANVAS_SIDE_LENGTH, 
+            CONSTANTS.CANVAS_SIDE_LENGTH, 
+            CONSTANTS.CANVAS_SIDE_LENGTH, 
+            CONSTANTS.CANVAS_SIDE_LENGTH
+        );
+        ctx.fillStyle = "black";
+        ctx.fillRect(
+            CONSTANTS.SNAKE_START_POS,
+            CONSTANTS.SNAKE_START_POS,
+            CONSTANTS.CANVAS_SIDE_LENGTH,
+            CONSTANTS.CANVAS_SIDE_LENGTH
+        );
     }
 }
 
