@@ -1,3 +1,2 @@
-# Snake
+# Snake - [Live Game](https://jmarkowitz098.github.io/snake/dist/)
 
-To play, visit: https://jmarkowitz098.github.io/snake/dist/
