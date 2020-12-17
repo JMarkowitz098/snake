@@ -17,7 +17,6 @@ export const DIR_OPTIONS = {
     ArrowLeft: DIR_LEFT,
     ArrowRight: DIR_RIGHT,
     ArrowDown: DIR_DOWN,
-
 }
 
 export const FPS = 10
