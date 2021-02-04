@@ -99,7 +99,6 @@ class GameCanvas {
         let scoreStr = scoreEle.innerHTML
         let score = parseInt(scoreStr.split(':')[1])
         score += 1
-        console.log(score)
         scoreEle.innerHTML = `Score: ${score}`;
     }
 }
